@@ -4,13 +4,13 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+AYA FLUTTER DOCUMENTATION
+1. 0 : Creation and publishing on github
+Install flutter sdk on a desired directory
+Flutter create aya_mobile - this command creates a new flutter project called aya_mobile
+Flutter analyse to check if there are any issues
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Open the project in an idea, VSCODE is recommended here
+To run the project, make sure you have an emulator (for android) or simulator (for iOS) set up already or connect a physical device to run on, by default flutter runs on the web, which is what we will use to first run our application
+To run a flutter project use flutter run command on your terminal at the project root, this will prompt your default browser to open the flutter project.
+Now upload th eproject files ot github
