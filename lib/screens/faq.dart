@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:sweet_alert_dialogs/sweet_alert_dialogs.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({ Key key }) : super(key: key);
+class FAQScreen extends StatefulWidget {
+  const FAQScreen({ Key key }) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _FAQScreenState createState() => _FAQScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FAQScreenState extends State<FAQScreen> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery. of(context). size. width;
@@ -81,30 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        children: <Widget>[
-                          InkWell(
-                            splashColor: Colors.yellowAccent,
-                            child: CardButton(
-                              height: screenHeight * (20 / 100),
-                              width: screenWidth * (35 / 100),
-                              icon: FontAwesomeIcons.userGraduate,
-                              size: screenWidth * 0.2,
-                              color: Color(0xffE3952D),
-                              borderColor: Color(0xffE3952D).withOpacity(0.75),
-                            ),
-                            onTap: () {
-                             
-                            },
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 8.0),
-                            child: Text('Student Check In'),
-                          )
-                        ],
-                      ),
-                    )
+                    
                   ],
                 ),
                 SizedBox(

@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import 'authentication/login.dart';
-
+//image attribute
+//check in <a href='https://www.freepik.com/free-photos-vectors/technology'>Technology vector created by rawpixel.com - www.freepik.com</a>
+//renew <a href='https://www.freepik.com/free-photos-vectors/sign'>Sign vector created by stories - www.freepik.com</a>
+//cpd <a href='https://www.freepik.com/free-photos-vectors/people'>People vector created by stories - www.freepik.com</a>
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -39,7 +42,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   Widget _buildFullscrenImage() {
     return Image.asset(
-      'assets/aya_logo.png',
+      'assets/terms.png',
       fit: BoxFit.cover,
       height: double.infinity,
       width: double.infinity,
@@ -80,7 +83,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         height: 60,
         child: ElevatedButton(
           child: const Text(
-            'Let\s go right away!',
+            'Go straight to Login Screen',
             style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
           ),
           onPressed: () => _onIntroEnd(context),
@@ -91,21 +94,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Renew License",
           body:
               "Quickly and easily renew your license in one click.",
-          image: _buildImage('aya_logo.png'),
+          image: _buildImage('terms.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Check In",
           body:
-              "Check In your location while on internship.",
-          image: _buildImage('aya_logo.png'),
+              "Check In at the facility while on internship.",
+          image: _buildImage('check_in.jpg'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "CPD Module",
           body:
-              "Do everything regarding the CPD Module.",
-          image: _buildImage('aya_logo.png'),
+              "Keep tabs on your Continous Professional Development milestones.",
+          image: _buildImage('cpd.jpg'),
           decoration: pageDecoration,
         ),
        /* PageViewModel(

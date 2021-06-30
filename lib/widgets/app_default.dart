@@ -77,7 +77,7 @@ class AppDrawer extends StatelessWidget {
                         ListButtons(
                           onTap: () {},
                           icon: Icons.location_on,
-                          text: 'Check In',
+                          text: 'Student Check In',
                         ),
                         ListButtons(
                           onTap: () async {
