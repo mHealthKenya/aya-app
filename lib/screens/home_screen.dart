@@ -1,3 +1,4 @@
+import 'package:aya_mobile/screens/posts.dart';
 import 'package:aya_mobile/widgets/app_default.dart';
 import 'package:aya_mobile/widgets/home_screen_widgets.dart';
 import 'package:flutter/material.dart';
@@ -183,7 +184,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderColor: Color(0xffD83B36).withOpacity(0.75),
                             ),
                             onTap: () async {
-                            
+                            Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => PostsScreen()),);    
                             },
                           ),
                           Padding(

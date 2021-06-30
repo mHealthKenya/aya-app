@@ -37,6 +37,8 @@ dependencies:
   sweet_alert_dialogs: "^0.1.0"
   #font_awesome icons for good ui
   font_awesome_flutter: ^9.1.0
+  #http package to make get and post requests
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
