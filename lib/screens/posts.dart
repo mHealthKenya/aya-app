@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-
 import 'package:aya_mobile/models/postsClass.dart';
 import 'package:aya_mobile/widgets/app_default.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +13,14 @@ class PostsScreen extends StatefulWidget {
 }
 
 class _PostsScreenState extends State<PostsScreen> {
+  //a variable of type future to hold the array of posts returned
   Future<List<Posts>> _posts;
+  //variable for holding search data
   String searchString = "";
+  //controller to feed into the search string
   final TextEditingController editingController = new TextEditingController();
 
+  //overided the initState method to allow the getPosts method to be run onCreate
   void initState(){
     _posts = getPosts();
     super.initState();
@@ -61,6 +63,7 @@ class _PostsScreenState extends State<PostsScreen> {
               overScroll.disallowGlow();
               return true;
             },
+            //future builder of type <List<Posts>> to asynchronously list all the posts
             child: new FutureBuilder<List<Posts>>(
               future: _posts,
               builder: (context, snapshot){
@@ -69,6 +72,7 @@ class _PostsScreenState extends State<PostsScreen> {
                   return new ListView.builder(
                     itemCount: allPosts.length,
                     itemBuilder: (BuildContext context, int index){
+                      //TO-DO: add a search widget to allow searches of the various posts
                       return allPosts[index].postTitle.contains(searchString)
                       ? Card(
                         child: Column(
@@ -86,10 +90,7 @@ class _PostsScreenState extends State<PostsScreen> {
                     );
                 }else if(snapshot.hasError){
                   return Text("${snapshot.error}");
-                } 
-                // else {
-                //   return Text("Sorry, An error occured, kindly try again.");
-                // }  
+                }                  
                 return CircularProgressIndicator();                              
               }
               
@@ -99,8 +100,11 @@ class _PostsScreenState extends State<PostsScreen> {
   }
 }
 
+//function that returns a list of posts
 Future<List<Posts>> getPosts() async{
+  //TO-DO create a constants file and put the base url
   var url = Uri.parse('http://192.168.0.167:5050/api/posts');
+  //todo add a try and catch on this http get request, also check internet connection
   var response = await http.get(url);
   print(response.body[0]);
   return List<Posts>.from(json.decode(response.body).map((x) => Posts.fromJson(x)));
