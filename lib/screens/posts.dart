@@ -32,29 +32,7 @@ class _PostsScreenState extends State<PostsScreen> {
       appBar: AyaAppBar(),
       body: WillPopScope(
           onWillPop: () async {
-            return showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return RichAlertDialog(
-                    alertTitle: richTitle("Exit the App"),
-                    alertSubtitle: richSubtitle('Are you Sure '),
-                    alertType: RichAlertType.WARNING,
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text("Yes"),
-                        onPressed: () {
-                         
-                        },
-                      ),
-                      TextButton(
-                        child: Text("No"),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
-                  );
-                });
+        Navigator.pop(context);
           },
           child: NotificationListener<OverscrollIndicatorNotification>(
             onNotification: (OverscrollIndicatorNotification overScroll) {
@@ -100,7 +78,7 @@ class _PostsScreenState extends State<PostsScreen> {
 }
 
 Future<List<Posts>> getPosts() async{
-  var url = Uri.parse('http://192.168.0.167:5050/api/posts');
+  var url = Uri.parse('https://aya-api.mhealthkenya.co.ke/api/posts');
   var response = await http.get(url);
   print(response.body[0]);
   return List<Posts>.from(json.decode(response.body).map((x) => Posts.fromJson(x)));

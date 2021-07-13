@@ -1,4 +1,7 @@
+import 'package:aya_mobile/screens/faq.dart';
 import 'package:aya_mobile/screens/posts.dart';
+import 'package:aya_mobile/screens/renew_license.dart';
+import 'package:aya_mobile/screens/student_check_in.dart';
 import 'package:aya_mobile/widgets/app_default.dart';
 import 'package:aya_mobile/widgets/home_screen_widgets.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ListView(
               children: <Widget>[
                 SizedBox(
-                  height: screenHeight * 0.1,
+                  height: screenHeight * 0.01,
                 ),
                 Row(
                   children: <Widget>[
@@ -66,18 +69,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: CardButton(
                               height: screenHeight * 0.2,
                               width: screenWidth * (35 / 100),
-                              icon: FontAwesomeIcons.userMd,
+                              icon: FontAwesomeIcons.fileContract,
                               size: screenWidth * (25 / 100),
                               color: Color(0xff7b1fa2),
                               borderColor: Color(0xff7b1fa2).withOpacity(0.75),
                             ),
-                            onTap: () {
-                             
+                           onTap: () async {
+                            await Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => RenewLicenseScreen()),);    
                             },
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 8.0),
-                            child: Text('My Account'),
+                            child: Text('Renew License'),
                           ),
                         ],
                       ),
@@ -95,8 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Color(0xffE3952D),
                               borderColor: Color(0xffE3952D).withOpacity(0.75),
                             ),
-                            onTap: () {
-                             
+                             onTap: () async {
+                            await Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => StudentCheckInScreen()),);    
                             },
                           ),
                           Padding(
@@ -109,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: screenHeight * 0.06,
+                  height: screenHeight * 0.03,
                 ),
                 Row(
                   children: <Widget>[
@@ -133,7 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           Padding(
                             padding: EdgeInsets.only(top: 8.0),
                             child: Text(
-                              'Contonious Professional Development (CPD)',
+                              'Continous Professional'+ '\n'+ 'Development - (CPD)',
+                              style: TextStyle(
+               
+               
+              ),
                             ),
                           ),
                         ],
@@ -166,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: screenHeight * 0.06,
+                  height: screenHeight * 0.03,
                 ),
                 Row(
                   children: <Widget>[
@@ -208,13 +217,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Color(0xff5d4037),
                               borderColor: Color(0xff5d4037).withOpacity(0.75),
                             ),
-                            onTap: () {
-                             // Navigator.pushNamed(context, ViewDocuments.id);
+                            onTap: () async {
+                            Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => FAQScreen()),);    
                             },
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 8.0),
-                            child: Text('FAQS'),
+                            child: Text('Frequently Asked Questions'),
                           )
                         ],
                       ),

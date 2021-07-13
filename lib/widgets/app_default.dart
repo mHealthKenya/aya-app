@@ -5,6 +5,7 @@ import 'package:aya_mobile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sweet_alert_dialogs/sweet_alert_dialogs.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class AppDrawer extends StatelessWidget {
@@ -120,12 +121,22 @@ class AppDrawer extends StatelessWidget {
                           color: Colors.grey.shade200,
                         ),
                         ListButtons(
-                          onTap: () {},
+                          onTap: () {
+                            launch('https://www.termsfeed.com/live/ccf90925-b031-4058-bf5c-3615e5918580',
+                             forceSafariVC: false,
+                                  forceWebView: false,                                 
+                                );
+                          },
                           icon: Icons.read_more,
                           text: 'Privacy Policy',
                         ),
                         ListButtons(
-                          onTap: () {},
+                           onTap: () {
+                            launch('https://mhealthkenya.org/',
+                             forceSafariVC: false,
+                                  forceWebView: false,                                 
+                                );
+                          },
                           icon: Icons.help_outline,
                           text: 'Help and Feedback',
                         ),
@@ -237,7 +248,7 @@ class AyaAppBar extends StatelessWidget implements PreferredSizeWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Aya '),
+              Text('AYA '),
               Text(
                 'Mobile',
                 style: TextStyle(color: Colors.black),

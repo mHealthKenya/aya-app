@@ -39,6 +39,10 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   #http package to make get and post requests
   http: ^0.13.3
+  #url launcher to launcher for launching urls
+  url_launcher: ^6.0.9
+  #geolocator to get the current user location
+  geolocator: ^7.2.0+1
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import 'authentication/login.dart';
-//image attribute
+//images for the splash screens
 //check in <a href='https://www.freepik.com/free-photos-vectors/technology'>Technology vector created by rawpixel.com - www.freepik.com</a>
 //renew <a href='https://www.freepik.com/free-photos-vectors/sign'>Sign vector created by stories - www.freepik.com</a>
 //cpd <a href='https://www.freepik.com/free-photos-vectors/people'>People vector created by stories - www.freepik.com</a>

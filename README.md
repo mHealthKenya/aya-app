@@ -18,3 +18,5 @@ On adding any changes ot the project, make sure to clean and rebuild it so as to
 
 2.0: Adding app logo and custom themes/styling
 Added the aya app logo to the ios runner files and android iconset, remember to always have different sozed images for different sized devices.  
+
+Privacy Policy: https://www.termsfeed.com/live/ccf90925-b031-4058-bf5c-3615e5918580
