@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: ListView(
               children: <Widget>[
-                Text(Globals.token),
+               
                 SizedBox(
                   height: screenHeight * 0.01,
                 ),
