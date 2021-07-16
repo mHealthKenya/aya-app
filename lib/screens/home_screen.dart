@@ -7,6 +7,7 @@ import 'package:aya_mobile/widgets/home_screen_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:sweet_alert_dialogs/sweet_alert_dialogs.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:aya_mobile/globals.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key key }) : super(key: key);
@@ -56,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: ListView(
               children: <Widget>[
+                Text(Globals.token),
                 SizedBox(
                   height: screenHeight * 0.01,
                 ),

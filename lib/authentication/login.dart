@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:aya_mobile/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:aya_mobile/globals.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -9,8 +14,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _State extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController msisdnController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +43,10 @@ class _State extends State<LoginPage> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: nameController,
+                    controller: msisdnController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Email',
+                      labelText: 'Phone',
                     ),
                   ),
                 ),
@@ -68,11 +75,11 @@ class _State extends State<LoginPage> {
                       style: ElevatedButton.styleFrom(primary: Colors.blue),
                       child: Text('Login'),
                       onPressed: () {
-                        print(nameController.text);
+                        print(msisdnController.text);
                         print(passwordController.text);
-                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => HomeScreen()),
-    );
+                        var msisdn = msisdnController.text;
+                        var password = passwordController.text;
+                        _authenticateCredentials(msisdn, password);                         
                       },
                     )),
                 Container(
@@ -93,6 +100,28 @@ class _State extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                     ))
               ],
-            )));
+            ))
+            );
+  }
+  void _authenticateCredentials(String msisdn, String password) async{
+try {
+  var url = Uri.parse('https://aya-api.mhealthkenya.co.ke/api/auth/login');
+   Response response = await post(url,    
+      body: {"msisdn": '$msisdn',
+      "password": '$password'});
+      Map data = jsonDecode(response.body);         
+      var token = data['token'];
+      print(token);
+      setState(() {
+              Globals.token = token;
+            });
+      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => HomeScreen()
+                          ),
+    );
+}catch (e) {
+    print(e);
   }
 }
+}
+

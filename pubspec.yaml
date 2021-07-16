@@ -43,6 +43,8 @@ dependencies:
   url_launcher: ^6.0.9
   #geolocator to get the current user location
   geolocator: ^7.2.0+1
+  #flutter-toast for showing nice toast messages
+  fluttertoast: ^8.0.7
 
 dev_dependencies:
   flutter_test:
