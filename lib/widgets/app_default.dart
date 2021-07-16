@@ -1,9 +1,12 @@
 
 import 'package:aya_mobile/authentication/login.dart';
+import 'package:aya_mobile/screens/faq.dart';
 import 'package:aya_mobile/screens/home_screen.dart';
+import 'package:aya_mobile/screens/posts.dart';
 import 'package:aya_mobile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sweet_alert_dialogs/sweet_alert_dialogs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -72,6 +75,16 @@ class AppDrawer extends StatelessWidget {
                               return LoginPage();
                             }));
                           },
+                          icon: Icons.perm_identity,
+                          text: 'My Profile',
+                        ),
+                        ListButtons(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return LoginPage();
+                            }));
+                          },
                           icon: Icons.badge,
                           text: 'Renew License',
                         ),
@@ -79,6 +92,32 @@ class AppDrawer extends StatelessWidget {
                           onTap: () {},
                           icon: Icons.location_on,
                           text: 'Student Check In',
+                        ),
+                        ListButtons(
+                          onTap: () {},
+                          icon: FontAwesomeIcons.hospital,
+                          text: 'CPD',
+                        ),
+                        ListButtons(
+                          onTap: () {},
+                          icon: FontAwesomeIcons.userFriends,
+                          text: 'Supervisory & Monitoring',
+                        ),
+                         ListButtons(
+                           onTap: () async {
+                            Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => PostsScreen()),);    
+                            },
+                          icon: FontAwesomeIcons.readme,
+                          text: 'Knowledge Base',
+                        ),
+                         ListButtons(
+                          onTap: () async {
+                            Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => FAQScreen()),);    
+                            },
+                          icon: FontAwesomeIcons.fileAlt,
+                          text: 'Frequently Asked Questions',
                         ),
                         ListButtons(
                           onTap: () async {
