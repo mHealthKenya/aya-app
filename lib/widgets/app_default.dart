@@ -2,6 +2,7 @@
 import 'package:aya_mobile/authentication/login.dart';
 import 'package:aya_mobile/screens/faq.dart';
 import 'package:aya_mobile/screens/home_screen.dart';
+import 'package:aya_mobile/screens/user_profile.dart';
 import 'package:aya_mobile/screens/posts.dart';
 import 'package:aya_mobile/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,7 @@ class AppDrawer extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return LoginPage();
+                              return UserProfileScreen();
                             }));
                           },
                           icon: Icons.perm_identity,

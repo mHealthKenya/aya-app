@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart';
 import 'package:aya_mobile/globals.dart';
+import 'package:provider/provider.dart';
 
 
 class LoginPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:aya_mobile/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:sweet_alert_dialogs/sweet_alert_dialogs.dart';
 
 class ProfilePage extends StatefulWidget {
 
