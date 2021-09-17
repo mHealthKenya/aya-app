@@ -93,7 +93,7 @@ class _State extends State<LoginPage> {
                             style: TextStyle(fontSize: 20),
                           ),
                           onPressed: () {
-                            //signup screen
+                            Navigator.of(context).pushNamed("/register");
                           },
                         )
                       ],
@@ -131,8 +131,8 @@ try {
               Globals.token = token;
             });
       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => HomeScreen()
-                          ),
+        MaterialPageRoute(builder: (_) => HomeScreen()
+        ),
     );
       }else 
         return Fluttertoast.showToast(

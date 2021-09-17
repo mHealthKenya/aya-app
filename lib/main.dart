@@ -1,6 +1,7 @@
 import 'package:aya_mobile/introduction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:aya_mobile/authentication/register.dart';
 
 import 'authentication/login.dart';
 
@@ -34,7 +35,11 @@ class MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         //if true return intro screen for first time Else go to login Screen
-        home: isLoggedIn ? LoginPage() : OnBoardingPage());
+        home: isLoggedIn ? LoginPage() : OnBoardingPage(),
+        routes: {
+          "/register" : (context) => Register(),
+          "/login" : (context) => LoginPage()
+        });
   }
 }
 
