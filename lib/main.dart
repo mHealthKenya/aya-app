@@ -1,7 +1,7 @@
+import 'package:aya_mobile/authentication/register.dart';
 import 'package:aya_mobile/introduction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:aya_mobile/authentication/register.dart';
 
 import 'authentication/login.dart';
 
@@ -40,6 +40,7 @@ class MyAppState extends State<MyApp> {
           "/register" : (context) => Register(),
           "/login" : (context) => LoginPage()
         });
+      
   }
 }
 

@@ -18,8 +18,6 @@ class LoginPage extends StatefulWidget {
 class _State extends State<LoginPage> {
   TextEditingController msisdnController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +62,7 @@ class _State extends State<LoginPage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     //forgot password screen
                   },
                   style: TextButton.styleFrom(primary: Colors.blue),
@@ -76,77 +74,72 @@ class _State extends State<LoginPage> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.blue),
                       child: Text('Login'),
-                      onPressed: () {                        
+                      onPressed: () {
                         var msisdn = msisdnController.text;
                         var password = passwordController.text;
-                        _authenticateCredentials(msisdn, password);                         
+                        _authenticateCredentials(msisdn, password);
                       },
                     )),
                 Container(
                     child: Row(
-                      children: <Widget>[
-                        Text('Dont have an account?'),
-                        TextButton(
-                          style: TextButton.styleFrom(primary: Colors.blue),
-                          child: Text(
-                            'Register',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).pushNamed("/register");
-                          },
-                        )
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ))
+                  children: <Widget>[
+                    Text('Dont have an account?'),
+                    TextButton(
+                      style: TextButton.styleFrom(primary: Colors.blue),
+                      child: Text(
+                        'Register',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/register");
+                      },
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ))
               ],
-            ))
-            );
+            )));
   }
-  
-   _authenticateCredentials(String msisdn, String password) async{
-try {
-  if(msisdn.isEmpty  || password.isEmpty){
-    print('empty');
-    return Fluttertoast.showToast(
-              msg: "Error, Phone or password field is empty.",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.CENTER_RIGHT,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              fontSize: 16.0);   
-  } else{
 
-  
-  var url = Uri.parse('https://aya-api.mhealthkenya.co.ke/api/auth/login');
-   Response response = await post(url,    
-      body: {"msisdn": '$msisdn',
-      "password": '$password'});
-      Map data = jsonDecode(response.body);
-       if(data['token'] !=null){
-        var token = data['token'];
-      print(token);
-      setState(() {
-              Globals.token = token;
-            });
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => HomeScreen()
-        ),
-    );
-      }else 
+  _authenticateCredentials(String msisdn, String password) async {
+    try {
+      if (msisdn.isEmpty || password.isEmpty) {
+        print('empty');
         return Fluttertoast.showToast(
+            msg: "Error, Phone or password field is empty.",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER_RIGHT,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      } else {
+        var url =
+            Uri.parse('https://aya-api.mhealthkenya.co.ke/api/auth/login');
+        Response response = await post(url,
+            body: {"msisdn": '$msisdn', "password": '$password'});
+        Map data = jsonDecode(response.body);
+        if (data['token'] != null) {
+          var token = data['token'];
+          print(token);
+          setState(() {
+            Globals.token = token;
+          });
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => HomeScreen()),
+          );
+        } else
+          return Fluttertoast.showToast(
               msg: "Error, $data['message']",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER_RIGHT,
               timeInSecForIosWeb: 1,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 16.0);    
-              }                     
-}catch (e) {
-    print(e);
+              fontSize: 16.0);
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 }
-}
-
